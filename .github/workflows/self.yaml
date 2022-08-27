@@ -1,0 +1,12 @@
+name: basic-test
+on:
+  push:
+    tags: [ "v*" ]
+    branches: [ main ]
+jobs:
+  build:
+    name: test-action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: zikani03/dblstd-action@v0.2

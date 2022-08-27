@@ -9,5 +9,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: $GITHUB_ACTION_PATH/action.sh
+    - uses: actions/setup-go@v2
+      with:
+        stable: true
+        go-version: 1.19.x
+    - run: "$GITHUB_ACTION_PATH/action.sh"
       shell: bash
