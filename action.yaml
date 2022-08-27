@@ -1,0 +1,13 @@
+name: dblstd-action
+author: "Zikani Nyirenda Mwase <zikani.nmwase@ymail.com>"
+description: Runs dblstd to verify that the repo conforms to some standard structure
+inputs:
+  shapeFile:
+    required: true
+    description: Path or URL to the shape file
+    default: './.dblstd'
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/action.sh
+      shell: bash
