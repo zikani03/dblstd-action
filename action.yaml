@@ -13,5 +13,10 @@ runs:
       with:
         stable: true
         go-version: 1.19.x
-    - run: "$GITHUB_ACTION_PATH/action.sh"
+    - run: |
+        git clone https://github.com/sethbonnie/dblstd dblstd-src
+        cd ./dblstd-src
+        go build -o dblstd . && chmod +x ./dblstd
+        cd ..
+        ./dblstd-src/dblstd -s "${{ inputs.shapeFile }}" .
       shell: bash
